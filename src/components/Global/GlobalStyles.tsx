@@ -13,58 +13,18 @@ const globalStyles = globalCss({
 	},
 
 	body: {
-		backgroundColor: "#1b1b1b",
+		background: "linear-gradient(to right, #171717, #202020)",
 		color: "white",
 		overflowX: "hidden",
 	},
+
 	a: {
 		textDecoration: "none",
-	},
-	".centerCarrousel": {
-		"& .slick-slide > div > div": {
-			"& h3:after": {
-				backgroundColor: "#5A7BE7",
-			},
-
-			"&:after": {
-				content: "",
-				position: "absolute",
-				top: "0",
-				left: "0",
-				width: "100%",
-				height: "100%",
-
-				background: "linear-gradient(#0000 50%, #131313 95%)",
-			},
-		},
-		"& .slick-center > div > div": {
-			background: "linear-gradient(#5552DE, #2F34A0, 40%, #132A7D)",
-			maxHeight: "30em",
-
-			"&:after": {
-				content: "",
-				position: "absolute",
-				top: "0",
-				left: "0",
-				width: "100%",
-				height: "100%",
-
-				background: "none",
-			},
-		},
+		color: "white",
 	},
 
-	"::-webkit-scrollbar": {
-		width: "10px",
-	},
-
-	"::-webkit-scrollbar-track": {
-		background: "#0f0f0f",
-	},
-
-	"::-webkit-scrollbar-thumb": {
-		background: "linear-gradient(to bottom, #21cfda, #c548ff)",
-		borderRadius: "100px",
+	ul: {
+		listStyle: "none",
 	},
 })
 
