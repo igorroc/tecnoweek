@@ -8,7 +8,7 @@ export function AppRoutes() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				{/* <Route path="*" element={<ComingSoon />} /> */}
+				<Route path="/soon" element={<ComingSoon />} />
 			</Routes>
 		</Router>
 	)
