@@ -13,6 +13,7 @@ const HeaderWrapper = styled("header", {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
+		top: 0,
 	},
 })
 
