@@ -8,11 +8,11 @@ const HeaderWrapper = styled("header", {
 		position: "fixed",
 		zIndex: "10",
 		width: "100%",
+		height: "60px",
 		backgroundColor: "#4d0845",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
-		height: "80px",
 	},
 })
 
