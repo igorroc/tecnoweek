@@ -9,7 +9,7 @@ import PalestraItem from "../components/PalestraItem"
 
 const MainContent = styled("main", {
 	"&": {
-		paddingTop: "150px",
+		paddingTop: "90px",
 		display: "flex",
 		justifyContent: "space-between",
 		alignItems: "center",
