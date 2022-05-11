@@ -172,6 +172,19 @@ function Home() {
 						subtitle="Dr. Gesil Sampaio"
 						description="27/05 ás 14hrs"
 					/>
+					<PalestraItem
+						// img={}
+						title="Visão Computacional da Indústria"
+						subtitle="Dr. Paulo Ambrósio"
+						description="25/05 ás 14hrs"
+						alternative
+					/>
+					<PalestraItem
+						// img={}
+						title="Propriedade Intelectual e Inovação"
+						subtitle="Dra. Laka Hattori"
+						description="27/05 ás 14hrs"
+					/>
 				</SectionContent>
 			</MaxWidthWrapper>
 		</div>
