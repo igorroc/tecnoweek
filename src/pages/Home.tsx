@@ -6,6 +6,7 @@ import Circuitinhos from "../assets/img/Circuitinhos.png"
 import { MaxWidthWrapper } from "../components/Global/MaxWidthWrapper"
 import Arrow from "../components/Arrow"
 import PalestraItem from "../components/PalestraItem"
+import CardCourse from "../components/CardCourse"
 
 const MainContent = styled("main", {
 	"&": {
@@ -120,6 +121,17 @@ const AboutList = styled("ul", {
 	},
 })
 
+const WrapperCouses = styled("div", {
+	"&": {
+		display: "flex",
+		gap: "40px",
+		flexWrap: "wrap",
+		alignItems: "center",
+		justifyContent: "center",
+		marginTop: "100px",
+	},
+})
+
 function Home() {
 	return (
 		<div>
@@ -185,6 +197,26 @@ function Home() {
 						subtitle="Leka Hattori"
 						description="27/05 ás 14hrs"
 					/>
+				</SectionContent>
+				<SectionContent>
+					<h2>MiniCursos</h2>
+					<WrapperCouses>
+						<CardCourse
+							title="Design com Figma"
+							date="Dia 27/05"
+							description="De 8:00 às 12:00 com Igor Rocha"
+						/>
+						<CardCourse
+							title="Design com Figma"
+							date="Dia 27/05"
+							description="De 8:00 às 12:00 com Igor Rocha"
+						/>
+						<CardCourse
+							title="Design com Figma"
+							date="Dia 27/05"
+							description="De 8:00 às 12:00 com Igor Rocha"
+						/>
+					</WrapperCouses>
 				</SectionContent>
 			</MaxWidthWrapper>
 		</div>
