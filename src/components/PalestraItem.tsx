@@ -4,7 +4,12 @@ const Wrapper = styled("div", {
 	display: "flex",
 	gap: "10px",
 	alignItems: "center",
-	margin: "50px 0",
+	margin: "50px 0px",
+	alignSelf: "end",
+
+	"&:nth-child(2n)": {
+		alignSelf: "start",
+	},
 
 	"& .imagem": {
 		position: "relative",
