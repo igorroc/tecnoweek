@@ -3,7 +3,8 @@ import TecnoWeek from "../assets/img/TecnoWeekWithoutArrow.png"
 import Controle from "../assets/img/Controle.png"
 import Seta from "../assets/img/Seta.png"
 import Onda from "../assets/img/Onda.png"
-import { keyframes, styled } from "@stitches/react"
+import { keyframes } from "@stitches/react"
+import { styled } from "../components/Global/GlobalStyles"
 import Arrow from "../components/Arrow"
 import { Icon } from "../components/Icon"
 
@@ -110,7 +111,7 @@ const Main = styled("div", {
 					position: "absolute",
 					bottom: "-15%",
 					right: "-10%",
-					animation: `${floatLeftRight} 3.6s ease-in-out infinite`,
+					// animation: `${floatLeftRight} 3.6s ease-in-out infinite`,
 				},
 				"&#controle": {
 					width: "30%",
@@ -129,7 +130,7 @@ const Main = styled("div", {
 					position: "absolute",
 					top: "-20%",
 					left: "-15%",
-					animation: `${scale} 4.4s ease-in-out infinite`,
+					// animation: `${scale} 4.4s ease-in-out infinite`,
 				},
 				"&#pc": {
 					transform: "scaleX(-1)",
@@ -138,6 +139,31 @@ const Main = styled("div", {
                                 4.8px 5.4px 12.8px -17px rgba(0, 0, 0, 0.2),
                                 11.5px 13px 30.8px -17px rgba(0, 0, 0, 0.27),
                                 38px 43px 102px -17px rgba(0, 0, 0, 0.42)`,
+				},
+			},
+		},
+
+		"@bp3": {
+			flexDirection: "column-reverse",
+			flexWrap: "unset",
+			gap: "40px",
+
+			"& #right": {
+				width: "200px",
+			},
+
+			"& #left": {
+				alignItems: "center",
+				textAlign: "center",
+
+				"& #title": {
+					"& > img": {
+						width: "250px",
+					},
+
+					"& #arrow": {
+						width: "150px",
+					},
 				},
 			},
 		},

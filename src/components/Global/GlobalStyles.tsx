@@ -1,4 +1,4 @@
-import { globalCss } from "@stitches/react"
+import { createStitches, globalCss } from "@stitches/react"
 
 const globalStyles = globalCss({
 	"*": {
@@ -25,6 +25,14 @@ const globalStyles = globalCss({
 
 	ul: {
 		listStyle: "none",
+	},
+})
+
+export const { styled, css } = createStitches({
+	media: {
+		bp1: "(max-width: 640px)",
+		bp2: "(max-width: 768px)",
+		bp3: "(max-width: 1024px)",
 	},
 })
 
