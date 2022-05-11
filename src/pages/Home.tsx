@@ -182,7 +182,7 @@ function Home() {
 					<PalestraItem
 						// img={}
 						title="Propriedade Intelectual e Inovação"
-						subtitle="Dra. Laka Hattori"
+						subtitle="Leka Hattori"
 						description="27/05 ás 14hrs"
 					/>
 				</SectionContent>
