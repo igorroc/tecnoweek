@@ -49,10 +49,12 @@ function Header() {
 	return (
 		<HeaderWrapper>
 			<Wrapper>
-				<Logo className="logo"></Logo>
+				<a href="/">
+					<Logo className="logo"></Logo>
+				</a>
 				<WrapperLinks>
 					<li>
-						<a href="#inicio">Início</a>
+						<a href="/">Início</a>
 					</li>
 					<li>
 						<a href="#sobre">Sobre</a>
