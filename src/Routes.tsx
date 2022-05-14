@@ -8,9 +8,12 @@ export function AppRoutes() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route path="/home" element={<Home />} />
 				<Route path="/inscricao" element={<Inscricao />} />
-				<Route path="/soon" element={<ComingSoon />} />
+				<Route path="/minicursos" element={<Inscricao />} />
+				<Route path="/torneio" element={<Inscricao />} />
+				<Route path="/cpu" element={<Inscricao />} />
+				<Route path="*" element={<ComingSoon />} />
 			</Routes>
 		</Router>
 	)
