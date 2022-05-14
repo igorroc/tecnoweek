@@ -1,6 +1,8 @@
 import { styled } from "@stitches/react"
 import Header from "../components/Header"
 import { Icon } from "../components/Icon"
+import BG from "../assets/img/background_inscricoes.png"
+import InputMask from "../components/InputMask"
 
 const Modal = styled("div", {
 	"&": {
@@ -10,8 +12,10 @@ const Modal = styled("div", {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		margin: "100px auto",
+		margin: "0 auto",
+		marginTop: "100px",
 		border: "5px solid #C904B0",
+		boxShadow: "0px 0px 10px #000",
 
 		"& #windowTitleBar": {
 			display: "flex",
@@ -22,13 +26,34 @@ const Modal = styled("div", {
 			height: "40px",
 			borderBottom: "5px solid #C904B0",
 
-			"& svg:last-child": {
-				marginRight: "15px",
+			"& .wrapperIcon": {
+				position: "relative",
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+				width: "20px",
+				height: "20px",
+				background: "#FF00DF",
+				boxShadow: "2px 2px 0px #fff",
+				cursor: "pointer",
+
+				"&.disabled": {
+					cursor: "not-allowed",
+				},
+
+				"&.opacity0": {
+					opacity: 0,
+					cursor: "auto",
+				},
+			},
+			"& svg": {
+				color: "#f7f7f7",
 			},
 		},
 
 		"& h2": {
 			margin: "20px 0",
+			fontSize: "2em",
 		},
 
 		"& #form": {
@@ -49,26 +74,73 @@ const Modal = styled("div", {
 					outline: "none",
 					color: "white",
 				},
+
+				"& select": {
+					background: "none",
+					border: "none",
+					borderBottom: "1px solid white",
+					color: "white",
+					padding: "0",
+
+					"& option": {
+						background: "#232323",
+
+						"&:focus, &:active, &:checked": {
+							backgroundColor: "#FF00DF",
+							fontWeight: "bold",
+						},
+					},
+				},
 			},
 
 			"& #timeline": {
 				display: "flex",
 				margin: "20px 0",
+				alignItems: "center",
 
 				"& button": {
 					background: "#CA00B1",
 					color: "white",
 					fontWeight: "bold",
 					padding: "5px 10px",
-					border: "none",
+					border: "2px inset #232323",
+					cursor: "pointer",
 				},
 
 				"& #timelineBar": {
 					margin: "0 10px",
 					flex: "1",
 					background: "#F29DE8",
+					padding: "2px",
+					border: "2px inset #232323",
+					height: "15px",
+					display: "flex",
+					gap: "2px",
+
+					"& .step": {
+						width: "100%",
+						height: "100%",
+						background: "#FF00DF",
+					},
 				},
 			},
+		},
+	},
+})
+
+const Background = styled("div", {
+	"&": {
+		position: "absolute",
+		zIndex: "-1",
+		top: "0",
+		left: "0",
+		width: "100vw",
+		height: "100vh",
+
+		"& img": {
+			width: "100%",
+			height: "100%",
+			objectFit: "cover",
 		},
 	},
 })
@@ -79,30 +151,51 @@ function Inscricao() {
 			<Header></Header>
 			<Modal>
 				<div id="windowTitleBar">
-					<Icon iconName="home" prefix="fas"></Icon>
-					<Icon iconName="home" prefix="fas"></Icon>
-					<Icon iconName="home" prefix="fas"></Icon>
+					<div className="wrapperIcon disabled">
+						<Icon iconName="window-minimize" prefix="fas"></Icon>
+					</div>
+					<div className="wrapperIcon disabled">
+						<Icon iconName="window-maximize" prefix="fas"></Icon>
+					</div>
+					<a href="/">
+						<div className="wrapperIcon">
+							<Icon iconName="xmark" prefix="fas"></Icon>
+						</div>
+					</a>
+					<div className="wrapperIcon opacity0"></div>
 				</div>
-				<h2>Inscreva-se na TecnoWeek</h2>
+				<h2>Inscreva-se</h2>
 				<form action="" id="form">
 					<div className="question">
 						<label htmlFor="nome">Nome Completo</label>
 						<input
 							type="text"
+							id="nome"
+							name="nome"
 							placeholder="Insira seu nome aqui..."
+							required
 						/>
 					</div>
 					<div className="question">
 						<label htmlFor="matricula">Matrícula</label>
-						<input
+						<InputMask
 							type="text"
 							id="matricula"
+							name="matricula"
 							placeholder="Ex: 202210111"
+							mask="_________"
+							maskType="number"
+							required
 						/>
 					</div>
 					<div className="question">
 						<label htmlFor="curso">Curso</label>
-						<select name="curso" id="curso">
+						<select
+							name="curso"
+							id="curso"
+							placeholder="Selecione seu curso"
+							required
+						>
 							<option value="cic">Ciência da Computação</option>
 							<option value="fis">Física</option>
 							<option value="eng">Engenharia</option>
@@ -113,20 +206,33 @@ function Inscricao() {
 						<label htmlFor="email">Email</label>
 						<input
 							type="email"
+							id="email"
+							name="email"
 							placeholder="Ex: pessoa@gmail.com"
+							required
 						/>
 					</div>
 					<div id="timeline">
 						<button>Anterior</button>
 						<div id="timelineBar">
-							{
-                                
-                            }
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
+							<span className="step"></span>
 						</div>
 						<button>Próximo</button>
 					</div>
 				</form>
 			</Modal>
+			<Background>
+				<img src={BG} />
+			</Background>
 		</div>
 	)
 }
