@@ -2,19 +2,23 @@ import { styled } from "@stitches/react"
 
 const Card = styled("div", {
 	"&": {
-		background: "linear-gradient(#09B1E6, #09B1E600)",
+		background: "linear-gradient(#09B1E6, #09B1E600, #09B1E6)",
+		backgroundSize: "100% 200%",
 		borderRadius: "10px",
 		padding: "2px",
 		flex: "1",
 		minWidth: "260px",
 		maxWidth: "300px",
+		transition: "background-size 300ms ease",
 
 		"&.roxo": {
-			background: "linear-gradient(#430163, #09B1E600)",
+			background: "linear-gradient(#430163, #09B1E600, #430163)",
+			backgroundSize: "100% 200%",
 		},
 
 		"&.vermelho": {
-			background: "linear-gradient(#F7015A, #09B1E600)",
+			background: "linear-gradient(#F7015A, #09B1E600, #F7015A)",
+			backgroundSize: "100% 200%",
 		},
 
 		"& > div": {
@@ -39,10 +43,12 @@ const Card = styled("div", {
 		},
 
 		"& .line": {
-			width: "70%",
+			width: "30%",
 			height: "2px",
 			background: "white",
 			margin: "20px auto",
+
+			transition: "width 150ms ease-in-out",
 		},
 
 		"& .wrapperContent": {
@@ -59,8 +65,15 @@ const Card = styled("div", {
 			},
 		},
 
-		"&:hover .content": {
-			maxHeight: "200px",
+		"&:hover": {
+			backgroundSize: "100% 100%",
+
+			"& .content": {
+				maxHeight: "200px",
+			},
+			"& .line": {
+				width: "70%",
+			},
 		},
 	},
 })
@@ -77,12 +90,7 @@ function PalestraItem(props: ItemProps) {
 	return (
 		<Card className={props.color}>
 			<div>
-				<div className="wrapperImage">
-					<img
-						src="https://blog.megajogos.com.br/wp-content/uploads/2018/07/no-image.jpg"
-						alt=""
-					/>
-				</div>
+				<div className="wrapperImage">{props.children}</div>
 				<span className="line"></span>
 				<div className="wrapperContent">
 					<h4>{props.title}</h4>
