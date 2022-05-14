@@ -4,6 +4,13 @@ import { Icon } from "../components/Icon"
 import BG from "../assets/img/background_inscricoes.png"
 import InputMask from "../components/InputMask"
 
+const MainPage = styled("div", {
+	"&": {
+		width: "100vw",
+		height: "100vh",
+		display: "flex",
+	},
+})
 const Modal = styled("div", {
 	"&": {
 		background: "#2F1E2D",
@@ -12,8 +19,7 @@ const Modal = styled("div", {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		margin: "0 auto",
-		marginTop: "100px",
+		margin: "auto",
 		border: "5px solid #C904B0",
 		boxShadow: "0px 0px 10px #000",
 
@@ -146,8 +152,9 @@ const Background = styled("div", {
 })
 
 function Inscricao() {
+	document.body.style.overflow = "hidden"
 	return (
-		<div>
+		<MainPage>
 			<Header></Header>
 			<Modal>
 				<div id="windowTitleBar">
@@ -233,7 +240,7 @@ function Inscricao() {
 			<Background>
 				<img src={BG} />
 			</Background>
-		</div>
+		</MainPage>
 	)
 }
 
