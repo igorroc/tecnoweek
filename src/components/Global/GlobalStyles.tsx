@@ -14,6 +14,8 @@ const globalStyles = globalCss({
 
 	body: {
 		background: "linear-gradient(to right, #171717, #202020)",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "100%",
 		color: "white",
 		overflowX: "hidden",
 	},
