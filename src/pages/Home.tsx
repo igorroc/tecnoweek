@@ -1,13 +1,20 @@
 import { styled } from "@stitches/react"
-import Header from "../components/Header"
-import TecnoWeek from "../assets/img/TecnoWeek.png"
-import Firulinhas from "../assets/img/Firulinhas.png"
-import Circuitinhos from "../assets/img/Circuitinhos.png"
 import { MaxWidthWrapper } from "../components/Global/MaxWidthWrapper"
+import Header from "../components/Header"
 import Arrow from "../components/Arrow"
 import PalestraItem from "../components/PalestraItem"
 import CardCourse from "../components/CardCourse"
 import Footer from "../components/Footer"
+
+import TecnoWeek from "../assets/img/TecnoWeek.png"
+import Firulinhas from "../assets/img/Firulinhas.png"
+import Circuitinhos from "../assets/img/Circuitinhos.png"
+import Gesil from "../assets/img/gesil.png"
+import Leka from "../assets/img/leka.png"
+import Ambrosio from "../assets/img/ambrosio.png"
+import Pandas from "../assets/img/pandas.png"
+import Figma from "../assets/img/figma.png"
+import BugBounty from "../assets/img/bugbounty.png"
 
 const MainContent = styled("main", {
 	"&": {
@@ -183,24 +190,27 @@ function Home() {
 				<SectionContent>
 					<h2>Palestras</h2>
 					<PalestraItem
-						// img={}
 						title="Propriedade Intelectual e Inovação"
 						subtitle="Dr. Gesil Sampaio"
 						description="27/05 ás 14hrs"
-					/>
+					>
+						<img src={Gesil} alt="Leka Hattori" />
+					</PalestraItem>
 					<PalestraItem
-						// img={}
 						title="Visão Computacional da Indústria"
 						subtitle="Dr. Paulo Ambrósio"
 						description="25/05 ás 14hrs"
 						alternative
-					/>
+					>
+						<img src={Ambrosio} alt="Leka Hattori" />
+					</PalestraItem>
 					<PalestraItem
-						// img={}
 						title="Propriedade Intelectual e Inovação"
 						subtitle="Leka Hattori"
 						description="27/05 ás 14hrs"
-					/>
+					>
+						<img src={Leka} alt="Leka Hattori" />
+					</PalestraItem>
 				</SectionContent>
 				<SectionContent>
 					<h2>MiniCursos</h2>
@@ -210,19 +220,25 @@ function Home() {
 							color="azul"
 							date="Dia 25/05"
 							description="De 8:00 às 12:00 com João Rupp"
-						/>
+						>
+							<img src={Pandas} alt="Pandas" />
+						</CardCourse>
 						<CardCourse
 							title="Explorando o Cross-Site Scripting (XSS)"
 							color="roxo"
 							date="Dia 26/05"
 							description="De 8:00 às 12:00 com Breno Vitório"
-						/>
+						>
+							<img src={BugBounty} alt="Pandas" />
+						</CardCourse>
 						<CardCourse
 							title="Design com Figma"
 							color="vermelho"
 							date="Dia 27/05"
 							description="De 8:00 às 12:00 com Igor Rocha"
-						/>
+						>
+							<img src={Figma} alt="Pandas" />
+						</CardCourse>
 					</WrapperCouses>
 				</SectionContent>
 			</MaxWidthWrapper>
