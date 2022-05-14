@@ -7,6 +7,7 @@ import { MaxWidthWrapper } from "../components/Global/MaxWidthWrapper"
 import Arrow from "../components/Arrow"
 import PalestraItem from "../components/PalestraItem"
 import CardCourse from "../components/CardCourse"
+import Footer from "../components/Footer"
 
 const MainContent = styled("main", {
 	"&": {
@@ -56,7 +57,9 @@ const SectionContent = styled("section", {
 			fontSize: "2em",
 			fontWeight: "bold",
 			textTransform: "uppercase",
+			textAlign: "center",
 			fontStyle: "italic",
+			filter: "drop-shadow(2px 2px 0px #F7015A)",
 		},
 
 		"& .background": {
@@ -126,13 +129,14 @@ const WrapperCouses = styled("div", {
 		display: "flex",
 		gap: "40px",
 		flexWrap: "wrap",
-		alignItems: "center",
+		alignItems: "start",
 		justifyContent: "center",
 		marginTop: "100px",
 	},
 })
 
 function Home() {
+	// console.log(Circuitinhos)
 	return (
 		<div>
 			<Header />
@@ -202,23 +206,27 @@ function Home() {
 					<h2>MiniCursos</h2>
 					<WrapperCouses>
 						<CardCourse
-							title="Design com Figma"
-							date="Dia 27/05"
-							description="De 8:00 às 12:00 com Igor Rocha"
+							title="Introdução ao Pandas"
+							color="azul"
+							date="Dia 25/05"
+							description="De 8:00 às 12:00 com João Rupp"
+						/>
+						<CardCourse
+							title="Explorando o Cross-Site Scripting (XSS)"
+							color="roxo"
+							date="Dia 26/05"
+							description="De 8:00 às 12:00 com Breno Vitório"
 						/>
 						<CardCourse
 							title="Design com Figma"
-							date="Dia 27/05"
-							description="De 8:00 às 12:00 com Igor Rocha"
-						/>
-						<CardCourse
-							title="Design com Figma"
+							color="vermelho"
 							date="Dia 27/05"
 							description="De 8:00 às 12:00 com Igor Rocha"
 						/>
 					</WrapperCouses>
 				</SectionContent>
 			</MaxWidthWrapper>
+			<Footer />
 		</div>
 	)
 }
