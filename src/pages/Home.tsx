@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react"
+import { keyframes, styled } from "@stitches/react"
 import { MaxWidthWrapper } from "../components/Global/MaxWidthWrapper"
 import Header from "../components/Header"
 import Arrow from "../components/Arrow"
@@ -6,8 +6,11 @@ import PalestraItem from "../components/PalestraItem"
 import CardCourse from "../components/CardCourse"
 import Footer from "../components/Footer"
 
-import TecnoWeek from "../assets/img/TecnoWeek.png"
-import Firulinhas from "../assets/img/Firulinhas.png"
+import PcGif from "../assets/gif/GIF PC.gif"
+import TecnoWeek from "../assets/img/TecnoWeekWithoutArrow.png"
+import Controle from "../assets/img/Controle.png"
+import Seta from "../assets/img/Seta.png"
+import Onda from "../assets/img/Onda.png"
 import Circuitinhos from "../assets/img/Circuitinhos.png"
 import Gesil from "../assets/img/gesil.png"
 import Leka from "../assets/img/leka.png"
@@ -15,20 +18,58 @@ import Ambrosio from "../assets/img/ambrosio.png"
 import Pandas from "../assets/img/pandas.png"
 import Figma from "../assets/img/figma.png"
 import BugBounty from "../assets/img/bugbounty.png"
+import useWindowDimensions from "../hooks/UseWindowDimentions"
+
+const floatUpDown = keyframes({
+	"0%": {
+		transform: "translateY(-20px)",
+	},
+	"50%": {
+		transform: "translateY(20px)",
+	},
+	"100%": {
+		transform: "translateY(-20px)",
+	},
+})
 
 const MainContent = styled("main", {
 	"&": {
-		paddingTop: "90px",
+		marginTop: "160px",
 		display: "flex",
 		justifyContent: "space-between",
 		alignItems: "center",
+
+		"&.breakMobile": {
+			flexDirection: "column",
+			gap: "50px",
+
+			"& #right": {
+				transform: "scale(0.7)",
+			},
+		},
 
 		"& #left": {
 			display: "flex",
 			flexDirection: "column",
 			gap: "1em",
 
-			"& img": {
+			"& #title": {
+				position: "relative",
+				width: "100%",
+
+				"& > img": {
+					width: "350px",
+				},
+
+				"& #arrow": {
+					position: "absolute",
+					bottom: "-70px",
+					right: "-10px",
+					transform: "scale(0.8)",
+				},
+			},
+
+			"& > img": {
 				width: "100%",
 
 				maxWidth: "400px",
@@ -45,10 +86,48 @@ const MainContent = styled("main", {
 				fontSize: "1.2em",
 			},
 		},
+	},
+})
 
-		"& #right img": {
+const WrapperPc = styled("div", {
+	"&": {
+		position: "relative",
+
+		"& img": {
+			"&#seta": {
+				width: "20%",
+				position: "absolute",
+				bottom: "-15%",
+				right: "-10%",
+				// animation: `${floatLeftRight} 3.6s ease-in-out infinite`,
+			},
+			"&#controle": {
+				width: "30%",
+				position: "absolute",
+				bottom: "-10%",
+				left: "-10%",
+				animation: `${floatUpDown} 3.2s ease-in-out infinite`,
+				filter: `drop-shadow(1.7px 1.9px 4.6px -17px rgba(0, 0, 0, 0.15),
+						4.8px 5.4px 12.8px -17px rgba(0, 0, 0, 0.2),
+						11.5px 13px 30.8px -17px rgba(0, 0, 0, 0.27),
+						38px 43px 102px -17px rgba(0, 0, 0, 0.42))`,
+			},
+			"&#onda": {
+				width: "40%",
+
+				position: "absolute",
+				top: "-20%",
+				left: "-15%",
+				// animation: `${scale} 4.4s ease-in-out infinite`,
+			},
+			"&#pc": {
+				transform: "scaleX(-1)",
 			width: "100%",
-			maxWidth: "500px",
+				boxShadow: `1.7px 1.9px 4.6px -17px rgba(0, 0, 0, 0.15),
+							4.8px 5.4px 12.8px -17px rgba(0, 0, 0, 0.2),
+							11.5px 13px 30.8px -17px rgba(0, 0, 0, 0.27),
+							38px 43px 102px -17px rgba(0, 0, 0, 0.42)`,
+			},
 		},
 	},
 })
@@ -150,13 +229,23 @@ function Home() {
 			<MaxWidthWrapper>
 				<MainContent id="inicio">
 					<div id="left">
+						<div id="title">
 						<img src={TecnoWeek} />
+							<span id="arrow">
+								<Arrow direction="left" blinking></Arrow>
+							</span>
+						</div>
 						<h2>Tecnologia e Inovação</h2>
 						<h3>25 à 27 de maio</h3>
 						<p>Na Universidade Estadual de Santa Cruz</p>
 					</div>
 					<div id="right">
-						<img src={Firulinhas} />
+						<WrapperPc>
+							<img src={PcGif} id="pc" />
+							<img src={Onda} id="onda" />
+							<img src={Controle} id="controle" />
+							<img src={Seta} id="seta" />
+						</WrapperPc>
 					</div>
 				</MainContent>
 				<SectionContent id="sobre">
