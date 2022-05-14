@@ -9,6 +9,10 @@ const Wrapper = styled("div", {
 
 	"&:nth-child(2n)": {
 		alignSelf: "start",
+
+		"& .imagem": {
+			background: "linear-gradient(#FC0AC7, #FC0AC700)",
+		},
 	},
 
 	"& .imagem": {
@@ -17,8 +21,18 @@ const Wrapper = styled("div", {
 		$$size: "150px",
 		width: "$$size",
 		height: "$$size",
-		background: "linear-gradient(#FC0AC7, #FC0AC700)",
+		background: "linear-gradient(#0FECD1, #FC0AC700)",
 		borderRadius: "50%",
+		overflow: "hidden",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+
+		"& img": {
+			borderRadius: "50%",
+			width: "97%",
+			height: "97%",
+		},
 	},
 
 	"& .content": {
@@ -66,12 +80,13 @@ type ItemProps = {
 	subtitle: string
 	description: string
 	alternative?: boolean
+	children: React.ReactNode
 }
 
 function PalestraItem(props: ItemProps) {
 	return (
 		<Wrapper className={props.alternative ? "alternative" : ""}>
-			<div className="imagem"></div>
+			<div className="imagem">{props.children}</div>
 			<div className="content">
 				<h3>{props.title}</h3>
 				<h4>{props.subtitle}</h4>
