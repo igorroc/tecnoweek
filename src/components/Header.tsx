@@ -1,5 +1,7 @@
 import { styled } from "@stitches/react"
 import Logo from "../assets/svg/TecnoJr.svg?component"
+import LogoSmall from "../assets/svg/TecnoJrLogo.svg?component"
+
 import DropDownButton from "./DropDownButton"
 import { MaxWidthWrapper } from "./Global/MaxWidthWrapper"
 
@@ -46,11 +48,18 @@ const WrapperLinks = styled("ul", {
 })
 
 function Header() {
+	const breakpointMobile = 500
+	let windowWidth = window.innerWidth
+
 	return (
 		<HeaderWrapper>
 			<Wrapper>
 				<a href="/">
-					<Logo className="logo"></Logo>
+					{windowWidth > breakpointMobile ? (
+						<Logo className="logo"></Logo>
+					) : (
+						<Logo className="logo"></Logo>
+					)}
 				</a>
 				<WrapperLinks>
 					<li>
