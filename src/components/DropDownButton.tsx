@@ -22,6 +22,11 @@ const ButtonWrapper = styled("div", {
                     22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
                     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
                     100px 100px 80px rgba(0, 0, 0, 0.07)`,
+		transition: "background 300ms ease",
+
+		"&.buttonOpen": {
+			background: "linear-gradient(to bottom, #6F1643, #861E7A)",
+		},
 	},
 
 	"& ul": {
@@ -30,18 +35,27 @@ const ButtonWrapper = styled("div", {
 		left: "50%",
 		transform: "translateX(-50%)",
 		maxHeight: "0px",
-		overflowY: "hidden",
+		overflow: "hidden",
 		display: "flex",
 		flexDirection: "column",
-		gap: ".4em",
-		padding: "0em 2em 0em .5em",
+		gap: ".1em",
+		padding: "0",
 		transition: "all 500ms ease",
 		background: "linear-gradient(#861E7A, #490942)",
 		borderRadius: "0 0 .6em .6em",
 
 		"&.buttonOpen": {
 			maxHeight: "100px",
-			padding: "1em 2em .5em .5em",
+			padding: "1em 0 .5em 0",
+		},
+
+		"& a": {
+			width: "100%",
+			padding: "0.2em 1.2em 0.2em 0.5em",
+			"&:hover": {
+				background: "white",
+				color: "black",
+			},
 		},
 	},
 })
@@ -55,12 +69,16 @@ function DropDownButton(props: buttonProps) {
 	const [clicked, setClicked] = useState(false)
 
 	function handleClick() {
-		console.log("oi")
 		setClicked(!clicked)
 	}
 	return (
-		<ButtonWrapper>
-			<button onClick={handleClick}>{props.title}</button>
+		<ButtonWrapper className="dropDownButton">
+			<button
+				onClick={handleClick}
+				className={clicked ? "buttonOpen" : ""}
+			>
+				{props.title}
+			</button>
 			<ul className={clicked ? "buttonOpen" : ""}>{props.children}</ul>
 		</ButtonWrapper>
 	)
