@@ -20,30 +20,6 @@ const floatUpDown = keyframes({
 	},
 })
 
-const scale = keyframes({
-	"0%": {
-		transform: "scale(1)",
-	},
-	"50%": {
-		transform: "scale(1.2)",
-	},
-	"100%": {
-		transform: "scale(1)",
-	},
-})
-
-const floatLeftRight = keyframes({
-	"0%": {
-		transform: "translateX(10px)",
-	},
-	"50%": {
-		transform: "translateX(-10px)",
-	},
-	"100%": {
-		transform: "translateX(10px)",
-	},
-})
-
 const Main = styled("div", {
 	"&": {
 		display: "flex",
