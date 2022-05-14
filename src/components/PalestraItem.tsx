@@ -1,5 +1,9 @@
 import { styled } from "@stitches/react"
 
+import Onda from "../assets/img/Onda.png"
+import Foguete from "../assets/img/rocket.png"
+import useWindowDimensions from "../hooks/UseWindowDimentions"
+
 const Wrapper = styled("div", {
 	display: "flex",
 	gap: "10px",
@@ -13,17 +17,28 @@ const Wrapper = styled("div", {
 		"& .imagem": {
 			background: "linear-gradient(#FC0AC7, #FC0AC700)",
 		},
+
+		"& .firula": {
+			transform: "translateX(-20%) scaleX(-1)",
+		},
+
+		"& .content .line img": {
+			right: "-35px",
+			bottom: "-15px",
+			left: "unset",
+			transform: "scaleX(1)",
+		},
 	},
 
 	"& .imagem": {
 		position: "relative",
 		zIndex: "1",
-		$$size: "150px",
+		$$size: "180px",
 		width: "$$size",
+		minWidth: "$$size",
 		height: "$$size",
 		background: "linear-gradient(#0FECD1, #FC0AC700)",
 		borderRadius: "50%",
-		overflow: "hidden",
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
@@ -58,6 +73,13 @@ const Wrapper = styled("div", {
 			background: "linear-gradient(to right, #FC0AC7, #1AFFF1)",
 			transform: "translateX(-10%)",
 			zIndex: "-1",
+
+			"& img": {
+				position: "absolute",
+				left: "-35px",
+				bottom: "-15px",
+				transform: "scaleX(-1)",
+			},
 		},
 	},
 
@@ -66,13 +88,36 @@ const Wrapper = styled("div", {
 
 		"& .content": {
 			alignItems: "end",
+			textAlign: "right",
 
 			"& .line": {
 				transform: "translateX(10%)",
-				background: "linear-gradient(to left, #FC0AC7, #1AFFF1)",
+				// background: "linear-gradient(to left, #FC0AC7, #1AFFF1)",
 			},
 		},
 	},
+
+	"&.break": {
+		flexDirection: "column",
+		alignItems: "start",
+
+		"&.alternative": {
+			alignItems: "end",
+		},
+
+		"& .line": {
+			width: "90%",
+		},
+	},
+})
+
+const Firula = styled("div", {
+	position: "absolute",
+	bottom: "0",
+	right: "0",
+	transform: "translateX(50%)",
+	width: "250px",
+	zIndex: -1,
 })
 
 type ItemProps = {
@@ -84,13 +129,34 @@ type ItemProps = {
 }
 
 function PalestraItem(props: ItemProps) {
+	const { height, width } = useWindowDimensions()
+	const breakpointMobile = 700
+
 	return (
-		<Wrapper className={props.alternative ? "alternative" : ""}>
-			<div className="imagem">{props.children}</div>
+		<Wrapper
+			className={
+				props.alternative
+					? width < breakpointMobile
+						? "alternative break"
+						: "alternative"
+					: width < breakpointMobile
+					? "break"
+					: ""
+			}
+		>
+			<div className="imagem">
+				{props.children}
+
+				<Firula className="firula">
+					<img src={Onda} alt="" />
+				</Firula>
+			</div>
 			<div className="content">
 				<h3>{props.title}</h3>
 				<h4>{props.subtitle}</h4>
-				<span className="line"></span>
+				<span className="line">
+					<img src={Foguete} />
+				</span>
 				<h5>{props.description}</h5>
 			</div>
 		</Wrapper>
