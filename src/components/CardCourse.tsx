@@ -9,6 +9,14 @@ const Card = styled("div", {
 		minWidth: "260px",
 		maxWidth: "300px",
 
+		"&.roxo": {
+			background: "linear-gradient(#430163, #09B1E600)",
+		},
+
+		"&.vermelho": {
+			background: "linear-gradient(#F7015A, #09B1E600)",
+		},
+
 		"& > div": {
 			display: "flex",
 			flexDirection: "column",
@@ -39,6 +47,20 @@ const Card = styled("div", {
 
 		"& .wrapperContent": {
 			width: "70%",
+			"& .content": {
+				marginTop: "20px",
+				maxHeight: "0px",
+				overflow: "hidden",
+				transition: "all 300ms ease-in-out",
+
+				"& h5": {
+					fontWeight: "400",
+				},
+			},
+		},
+
+		"&:hover .content": {
+			maxHeight: "200px",
 		},
 	},
 })
@@ -47,12 +69,13 @@ type ItemProps = {
 	title: string
 	date: string
 	description: string
+	color: "roxo" | "azul" | "vermelho"
 	children?: React.ReactNode
 }
 
 function PalestraItem(props: ItemProps) {
 	return (
-		<Card>
+		<Card className={props.color}>
 			<div>
 				<div className="wrapperImage">
 					<img
@@ -63,7 +86,7 @@ function PalestraItem(props: ItemProps) {
 				<span className="line"></span>
 				<div className="wrapperContent">
 					<h4>{props.title}</h4>
-					<div>
+					<div className="content">
 						<h5>{props.date}</h5>
 						<h5>{props.description}</h5>
 					</div>
