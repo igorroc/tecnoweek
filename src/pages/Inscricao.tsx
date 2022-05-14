@@ -14,7 +14,7 @@ const MainPage = styled("div", {
 const Modal = styled("div", {
 	"&": {
 		background: "#2F1E2D",
-		width: "500px",
+		width: "400px",
 		paddingBottom: "20px",
 		display: "flex",
 		flexDirection: "column",
