@@ -122,7 +122,7 @@ const WrapperPc = styled("div", {
 			},
 			"&#pc": {
 				transform: "scaleX(-1)",
-			width: "100%",
+				width: "100%",
 				boxShadow: `1.7px 1.9px 4.6px -17px rgba(0, 0, 0, 0.15),
 							4.8px 5.4px 12.8px -17px rgba(0, 0, 0, 0.2),
 							11.5px 13px 30.8px -17px rgba(0, 0, 0, 0.27),
@@ -222,15 +222,20 @@ const WrapperCouses = styled("div", {
 })
 
 function Home() {
-	// console.log(Circuitinhos)
+	const { height, width } = useWindowDimensions()
+	const breakpointMobile = 1220
+
 	return (
 		<div>
 			<Header />
 			<MaxWidthWrapper>
-				<MainContent id="inicio">
+				<MainContent
+					id="inicio"
+					className={width < breakpointMobile ? "breakMobile" : ""}
+				>
 					<div id="left">
 						<div id="title">
-						<img src={TecnoWeek} />
+							<img src={TecnoWeek} />
 							<span id="arrow">
 								<Arrow direction="left" blinking></Arrow>
 							</span>
@@ -276,6 +281,8 @@ function Home() {
 					</div>
 				</SectionContent>
 				<Arrow direction="down" blinking={true} />
+
+				{/* Palestras */}
 				<SectionContent>
 					<h2>Palestras</h2>
 					<PalestraItem
@@ -301,6 +308,8 @@ function Home() {
 						<img src={Leka} alt="Leka Hattori" />
 					</PalestraItem>
 				</SectionContent>
+
+				{/* MiniCurso */}
 				<SectionContent>
 					<h2>MiniCursos</h2>
 					<WrapperCouses>
