@@ -288,24 +288,24 @@ function Home() {
 					<PalestraItem
 						title="Propriedade Intelectual e Inovação"
 						subtitle="Dr. Gesil Sampaio"
-						description="27/05 ás 14hrs"
+						description="25/05 ás 14hrs"
 					>
 						<img src={Gesil} alt="Leka Hattori" />
 					</PalestraItem>
 					<PalestraItem
-						title="Visão Computacional da Indústria"
-						subtitle="Dr. Paulo Ambrósio"
-						description="25/05 ás 14hrs"
+						title="Empreendedorismo Feminino"
+						subtitle="Leka Hattori"
+						description="25/05 ás 15hrs"
 						alternative
 					>
-						<img src={Ambrosio} alt="Leka Hattori" />
+						<img src={Leka} alt="Leka Hattori" />
 					</PalestraItem>
 					<PalestraItem
-						title="Propriedade Intelectual e Inovação"
-						subtitle="Leka Hattori"
+						title="Visão Computacional da Indústria"
+						subtitle="Dr. Paulo Ambrósio"
 						description="27/05 ás 14hrs"
 					>
-						<img src={Leka} alt="Leka Hattori" />
+						<img src={Ambrosio} alt="Leka Hattori" />
 					</PalestraItem>
 				</SectionContent>
 
