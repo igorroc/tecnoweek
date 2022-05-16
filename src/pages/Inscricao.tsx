@@ -365,7 +365,7 @@ function Inscricao() {
 		console.log("participarTorneio:", participarTorneio.checked)
 
 		setFormFinalizado(true)
-		createPopup()
+		createPopup(null)
 	}
 
 	function validateForm() {
@@ -575,7 +575,7 @@ function Inscricao() {
 				let randomStyle
 
 				if (index == 0) {
-					randonStyle = {}
+					// randonStyle = {}
 				} else {
 					randomStyle = useRef({
 						top: `${Math.floor(Math.random() * (80 + 1))}%`,
@@ -589,7 +589,7 @@ function Inscricao() {
 					<div className="popupModal" key={index}>
 						<div
 							className="titlePopupModal"
-							style={randomStyle.current}
+							// style={randomStyle.current}
 						>
 							<span>Tecnoweek</span>
 							<button
