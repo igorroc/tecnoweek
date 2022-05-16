@@ -3,7 +3,11 @@ import Header from "../components/Header"
 import { Icon } from "../components/Icon"
 import BG from "../assets/img/background_inscricoes.png"
 import InputMask from "../components/InputMask"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import Cookies from "universal-cookie"
+const cookies = new Cookies()
+
+import { sendDataToDatabase } from "../hooks/DataBaseConnection"
 
 const ScaleUp = keyframes({
 	"0%": {
@@ -148,11 +152,16 @@ const Modal = styled("div", {
 
 				"&.currentOn1": {
 					transform: "translateX(-100%)",
-					height: "350px",
+					height: "220px",
+				},
+
+				"&.currentOn2": {
+					transform: "translateX(-204%)",
+					height: "120px",
 				},
 
 				"& #etapa2": {
-					"& p": {
+					"& .questionTitle": {
 						borderBottom: "1px solid white",
 						fontSize: "1.4em",
 					},
@@ -194,8 +203,38 @@ const Modal = styled("div", {
 							backgroundColor: "#eee",
 						},
 
-						"& input[type=checkbox]:checked ~ .checkmark": {
+						"& input[type=checkbox]:checked ~ .checkmark::after": {
+							content: "",
+							position: "absolute",
+							width: "50%",
+							height: "50%",
+							top: "50%",
+							left: "50%",
+							transform: "translate(-50%, -50%)",
 							backgroundColor: "#c904b0",
+						},
+
+						"&:hover .info, &:focus .info": {
+							transform: "scale(1)",
+						},
+
+						"& .info": {
+							position: "absolute",
+							zIndex: 20,
+							top: "100%",
+							padding: "10px 20px",
+
+							borderRadius: "5px",
+							backgroundColor: "#950283",
+							boxShadow: "2px 3px 10px #000a",
+
+							transform: "scale(0)",
+							transformOrigin: "top left",
+							transition: "all 300ms ease",
+
+							"& strong": {
+								marginLeft: "8px",
+							},
 						},
 					},
 				},
@@ -310,6 +349,13 @@ function Inscricao() {
 		{ x: "calc(50% - 72.5px)", y: "calc(50% - 150px)" },
 	])
 
+	useEffect(() => {
+		if (cookies.get("jaSeInscreveu")) {
+			alert("Você já fez a inscrição!")
+			window.location.href = "/"
+		}
+	}, [])
+
 	function handleStep(ev: any) {
 		ev.preventDefault()
 
@@ -325,7 +371,7 @@ function Inscricao() {
 
 		let final = step + passo
 		final = final < 0 ? 0 : final
-		final = final > 1 ? 1 : final
+		final = final > 2 ? 1 : final
 
 		setStep(final)
 
@@ -339,15 +385,14 @@ function Inscricao() {
 		let curso = document.querySelector("#curso") as any
 		let email = document.querySelector("#email") as any
 
-		let bugbounty = document.querySelector("#bugbounty") as any
-		let figma = document.querySelector("#figma") as any
-		let pandas = document.querySelector("#pandas") as any
-
 		let propriedadeIntelectual = document.querySelector(
 			"#propriedadeIntelectual"
 		) as any
 		let visaoComputacional = document.querySelector(
 			"#visaoComputacional"
+		) as any
+		let empreendedorismoFeminino = document.querySelector(
+			"#empreendedorismoFeminino"
 		) as any
 		let participarTorneio = document.querySelector(
 			"#participarTorneio"
@@ -359,16 +404,37 @@ function Inscricao() {
 		console.log("curso:", curso.value)
 		console.log("email:", email.value)
 
-		console.log("figma:", figma.checked)
-		console.log("bugbounty:", bugbounty.checked)
-		console.log("pandas:", pandas.checked)
-
 		console.log("propriedadeIntelectual:", propriedadeIntelectual.checked)
 		console.log("visaoComputacional:", visaoComputacional.checked)
+		console.log(
+			"empreendedorismoFeminino:",
+			empreendedorismoFeminino.checked
+		)
 		console.log("participarTorneio:", participarTorneio.checked)
 
 		setFormFinalizado(true)
 		createPopup(null)
+
+		sendDataToDatabase({
+			nome: nome.value,
+			matricula: matricula.value,
+			curso: curso.value,
+			email: email.value,
+			propriedadeIntelectual: propriedadeIntelectual.checked,
+			visaoComputacional: visaoComputacional.checked,
+			empreendedorismoFeminino: empreendedorismoFeminino.checked,
+			participarTorneio: participarTorneio.checked,
+		})
+
+		cookies.set("jaSeInscreveu", true, { path: "/" })
+
+		// ! DESCOMENTAR PRA REDIRECIONAR PRO SYMPLA
+		// window
+		// 	.open(
+		// 		"https://organizador.sympla.com.br/evento/preview/a095917aa72dd0b74d5937ec0958f473",
+		// 		"_blank"
+		// 	)
+		// 	?.focus()
 	}
 
 	function validateForm() {
@@ -385,6 +451,10 @@ function Inscricao() {
 
 	function createPopup(ev: any) {
 		setPopups(popups + 1)
+	}
+
+	function redirectHome() {
+		window.location.href = "/"
 	}
 
 	return (
@@ -460,68 +530,79 @@ function Inscricao() {
 						</div>
 						<div id="etapa2" className="etapa">
 							<div className="question">
-								<p>MiniCursos</p>
-								<span className="selection">
-									<label htmlFor="bugbounty">
-										Introdução ao BugBounty
-										<input
-											type="checkbox"
-											id="bugbounty"
-											name="bugbounty"
-										/>
-										<span className="checkmark"></span>
-									</label>
-								</span>
-								<span className="selection">
-									<label htmlFor="figma">
-										Design com Figma
-										<input
-											type="checkbox"
-											id="figma"
-											name="figma"
-										/>
-										<span className="checkmark"></span>
-									</label>
-								</span>
-								<span className="selection">
-									<label htmlFor="pandas">
-										Introdução ao Pandas
-										<input
-											type="checkbox"
-											id="pandas"
-											name="pandas"
-										/>
-										<span className="checkmark"></span>
-									</label>
-								</span>
-							</div>
-							<div className="question">
-								<p>Palestras</p>
+								<p className="questionTitle">Palestras</p>
 								<span className="selection">
 									<label htmlFor="propriedadeIntelectual">
-										Propriedade intelectual e inovação
+										Propriedade Intelectual e Inovação
 										<input
 											type="checkbox"
 											id="propriedadeIntelectual"
 											name="propriedadeIntelectual"
 										/>
 										<span className="checkmark"></span>
+										<div className="info">
+											<p>
+												Palestrante:
+												<strong>
+													Dr. Gesil Sampaio
+												</strong>
+											</p>
+											<p>
+												Horário:
+												<strong>25/05 ás 14hrs</strong>
+											</p>
+										</div>
 									</label>
 								</span>
 								<span className="selection">
 									<label htmlFor="visaoComputacional">
-										Visão computacional da indústria
+										Visão Computacional da Indústria
 										<input
 											type="checkbox"
 											id="visaoComputacional"
 											name="visaoComputacional"
 										/>
 										<span className="checkmark"></span>
+										<div className="info">
+											<p>
+												Palestrante:
+												<strong>
+													Dr. Paulo Ambrósio
+												</strong>
+											</p>
+											<p>
+												Horário:
+												<strong>27/05 ás 14hrs</strong>
+											</p>
+										</div>
+									</label>
+								</span>
+								<span className="selection">
+									<label htmlFor="empreendedorismoFeminino">
+										Empreendedorismo Feminino
+										<input
+											type="checkbox"
+											id="empreendedorismoFeminino"
+											name="empreendedorismoFeminino"
+										/>
+										<span className="checkmark"></span>
+										<div className="info">
+											<p>
+												Palestrante:
+												<strong>Leka Hattori</strong>
+											</p>
+											<p>
+												Horário:
+												<strong>25/05 às 15hrs</strong>
+											</p>
+										</div>
 									</label>
 								</span>
 							</div>
 							<div className="question">
-								<p>Você vai participar do Torneio de Jogos?</p>
+								<p className="questionTitle">
+									Você vai participar do Torneio de Jogos?
+								</p>
 								<span className="selection">
 									<label htmlFor="participarTorneio">
 										Sim
@@ -533,6 +614,17 @@ function Inscricao() {
 										<span className="checkmark"></span>
 									</label>
 								</span>
+							</div>
+						</div>
+						<div id="etapa3" className="etapa">
+							<div className="question">
+								<h3>MiniCursos</h3>
+								<p>
+									Ao clicar no botão "Finalizar" você vai ser
+									redirecionado para a página do Sympla, onde
+									você poderá pegar o seu ingresso para o(s)
+									minicurso(s) escolhido(s)!
+								</p>
 							</div>
 						</div>
 					</div>
@@ -550,7 +642,7 @@ function Inscricao() {
 							))}
 						</div>
 
-						{step < 1 ? (
+						{step < 2 ? (
 							<button
 								onClick={handleStep}
 								id="btnNext"
@@ -604,7 +696,9 @@ function Inscricao() {
 							</button>
 						</div>
 						<h3>Sua inscrição foi finalizada!</h3>
-						<button className="popupOk">ok</button>
+						<button className="popupOk" onClick={redirectHome}>
+							ok
+						</button>
 					</div>
 				)
 			})}
