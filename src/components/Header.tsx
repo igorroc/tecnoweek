@@ -156,8 +156,7 @@ function Header() {
 						</li>
 						<li>
 							<DropDownButton title="Inscreva-se!">
-								<a href="/minicursos">Minicursos</a>
-								<a href="/torneio">Torneio</a>
+								<a href="/inscricao">TecnoWeek</a>
 								<a href="/cpu">CPU</a>
 							</DropDownButton>
 						</li>
@@ -194,8 +193,7 @@ function Header() {
 								</li>
 								<li>
 									<DropDownButton title="Inscreva-se!">
-										<a href="/minicursos">Minicursos</a>
-										<a href="/torneio">Torneio</a>
+										<a href="/inscricao">TecnoWeek</a>
 										<a href="/cpu">CPU</a>
 									</DropDownButton>
 								</li>
