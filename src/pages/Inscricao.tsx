@@ -306,6 +306,9 @@ function Inscricao() {
 	const [timeLine, setTimeLine] = useState(1)
 	const [popups, setPopups] = useState(0)
 	const [formFinalizado, setFormFinalizado] = useState(false)
+	const [randomPosition, setRandomPosition] = useState([
+		{ x: "calc(50% - 72.5px)", y: "calc(50% - 150px)" },
+	])
 
 	function handleStep(ev: any) {
 		ev.preventDefault()
@@ -572,25 +575,26 @@ function Inscricao() {
 			</Background>
 
 			{[...Array(popups)].map((el, index) => {
-				let randomStyle
+				let x = Math.floor(Math.random() * (80 + 1))
+				let y = Math.floor(Math.random() * (80 - 10 + 1) + 10)
 
-				if (index == 0) {
-					// randonStyle = {}
-				} else {
-					randomStyle = useRef({
-						top: `${Math.floor(Math.random() * (80 + 1))}%`,
-						left: `${Math.floor(
-							Math.random() * (80 - 10 + 1) + 10
-						)}%`,
+				if (!randomPosition[index]) {
+					randomPosition.push({
+						x: x.toString(),
+						y: y.toString(),
 					})
 				}
 
 				return (
-					<div className="popupModal" key={index}>
-						<div
-							className="titlePopupModal"
-							// style={randomStyle.current}
-						>
+					<div
+						className="popupModal"
+						key={index}
+						style={{
+							top: `${randomPosition[index].y}%`,
+							left: `${randomPosition[index].x}%`,
+						}}
+					>
+						<div className="titlePopupModal">
 							<span>Tecnoweek</span>
 							<button
 								className="closePopupModal"
