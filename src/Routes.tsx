@@ -10,8 +10,6 @@ export function AppRoutes() {
 			<Routes>
 				<Route path="/home" element={<Home />} />
 				<Route path="/inscricao" element={<Inscricao />} />
-				<Route path="/minicursos" element={<Inscricao />} />
-				<Route path="/torneio" element={<Inscricao />} />
 				<Route path="/cpu" element={<Inscricao />} />
 				<Route path="*" element={<ComingSoon />} />
 			</Routes>
