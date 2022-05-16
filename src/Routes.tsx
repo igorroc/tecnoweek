@@ -1,8 +1,8 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
-// import PageNotFound from "./pages/404"
 import Home from "./pages/Home"
 import ComingSoon from "./pages/ComingSoon"
 import Inscricao from "./pages/Inscricao"
+import CPU from "./pages/CPU"
 
 export function AppRoutes() {
 	return (
@@ -10,7 +10,7 @@ export function AppRoutes() {
 			<Routes>
 				<Route path="/home" element={<Home />} />
 				<Route path="/inscricao" element={<Inscricao />} />
-				<Route path="/cpu" element={<Inscricao />} />
+				<Route path="/cpu" element={<CPU />} />
 				<Route path="*" element={<ComingSoon />} />
 			</Routes>
 		</Router>
