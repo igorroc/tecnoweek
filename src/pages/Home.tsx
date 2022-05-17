@@ -18,6 +18,8 @@ import Ambrosio from "../assets/img/ambrosio.png"
 import Pandas from "../assets/img/pandas.png"
 import Figma from "../assets/img/figma.png"
 import BugBounty from "../assets/img/bugbounty.png"
+import CPU from "../assets/img/CPU_Logo.png"
+
 import useWindowDimensions from "../hooks/UseWindowDimentions"
 
 const floatUpDown = keyframes({
@@ -231,6 +233,39 @@ const WrapperCouses = styled("div", {
 	},
 })
 
+const WrapperCPU = styled("div", {
+	display: "flex",
+	gap: "40px",
+	alignItems: "center",
+	justifyContent: "center",
+	flexWrap: "wrap",
+	marginTop: "100px",
+
+	"& img": {
+		width: "180px",
+	},
+
+	"& p": {
+		maxWidth: "500px",
+		minWidth: "300px",
+		"& a": {
+			background: "linear-gradient(90deg, #740276, #911010)",
+			padding: "10px 20px",
+			borderRadius: "10px",
+			fontWeight: "bold",
+			transition: "all 300ms ease",
+
+			"&:hover": {
+				background: "linear-gradient(0deg, #740276, #911010)",
+			},
+		},
+	},
+	"& p p": {
+		marginBottom: "40px",
+		textAlign: "justify",
+	},
+})
+
 function Home() {
 	const { height, width } = useWindowDimensions()
 	const breakpointMobile = 1220
@@ -348,6 +383,38 @@ function Home() {
 							<img src={Figma} alt="Pandas" />
 						</CardCourse>
 					</WrapperCouses>
+				</SectionContent>
+
+				{/* CPU */}
+				<SectionContent>
+					<h2 className="red">
+						Campeonato de Programação Universitário
+					</h2>
+					<WrapperCPU>
+						<img src={CPU} alt="Logo CPU" />
+						<p>
+							<p>
+								O CPU é um campeonato de programação que ocorre
+								todos os anos. O evento é promovido pela Empresa
+								Júnior de Computação da UESC - TecnoJr.
+							</p>
+							<p>
+								O evento é destinado aos alunos do curso de
+								graduação na área de Computação e afins (Ciência
+								da Computação, Engenharia de Computação,
+								Sistemas de Informação, Matemática, etc.), com o
+								objetivo de: Estimular o interesse pela
+								programação de computadores, proporcionar a
+								prática nas disciplinas de programação,
+								proporcionar desafios aos estudantes das
+								Faculdades ou Universidades da região entre
+								outros.
+							</p>
+							<a href="/cpu" target="_blank">
+								Saiba mais
+							</a>
+						</p>
+					</WrapperCPU>
 				</SectionContent>
 			</MaxWidthWrapper>
 			<Footer />
