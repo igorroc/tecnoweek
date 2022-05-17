@@ -8,10 +8,10 @@ export function AppRoutes() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/home" element={<Home />} />
 				<Route path="/inscricao" element={<Inscricao />} />
 				<Route path="/cpu" element={<CPU />} />
-				<Route path="*" element={<ComingSoon />} />
+				<Route path="/soon" element={<ComingSoon />} />
+				<Route path="*" element={<Home />} />
 			</Routes>
 		</Router>
 	)
