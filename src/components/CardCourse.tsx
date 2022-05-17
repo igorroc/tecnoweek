@@ -12,7 +12,7 @@ const Card = styled("div", {
 		transition: "background-size 300ms ease",
 
 		"&.roxo": {
-			background: "linear-gradient(#430163, #09B1E600, #430163)",
+			background: "linear-gradient(#a600a6, #09B1E600, #a600a6)",
 			backgroundSize: "100% 200%",
 		},
 
