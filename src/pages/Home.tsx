@@ -146,6 +146,7 @@ const SectionContent = styled("section", {
 			textAlign: "center",
 			fontStyle: "italic",
 			filter: "drop-shadow(2px 2px 0px #F7015A)",
+			},
 		},
 
 		"& .background": {
@@ -254,7 +255,7 @@ function Home() {
 					</div>
 				</MainContent>
 				<SectionContent id="sobre">
-					<h2>O que é o evento?</h2>
+					<h2 className="blue">O que é o evento?</h2>
 					<AboutList>
 						<li>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -311,7 +312,7 @@ function Home() {
 
 				{/* MiniCurso */}
 				<SectionContent>
-					<h2>MiniCursos</h2>
+					<h2 className="purple">MiniCursos</h2>
 					<WrapperCouses>
 						<CardCourse
 							title="Introdução ao Pandas"
