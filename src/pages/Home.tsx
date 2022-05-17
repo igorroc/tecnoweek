@@ -227,7 +227,7 @@ function Home() {
 	const breakpointMobile = 1220
 
 	return (
-		<div>
+		<div id="pageTop">
 			<Header />
 			<MaxWidthWrapper>
 				<MainContent
