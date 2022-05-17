@@ -272,12 +272,12 @@ export function Footer() {
 							km 16 S/N Bairro Salobrinho, Ilhéus
 						</p>
 					</InfoItem>
-					<InfoItem href="tel:55999999999">
+					<InfoItem href="tel:557336805389">
 						<div className="infoIcon">
 							<Icon prefix="fas" iconName="phone" />
 						</div>
 						<span>TELEFONE</span>
-						<p>+55 (73) 9 9999-9999</p>
+						<p>+55 (73) 3680-5389</p>
 					</InfoItem>
 				</FlexDiv>
 				<Division height="normal" line />
