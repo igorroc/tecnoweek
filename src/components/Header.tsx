@@ -152,7 +152,9 @@ function Header() {
 							<a href="#sobre">Sobre</a>
 						</li>
 						<li>
-							<a href="#programacao">Programação</a>
+							<a href="../assets/pdf/schedule.pdf" download>
+								Programação
+							</a>
 						</li>
 						<li>
 							<DropDownButton title="Inscreva-se!">
@@ -189,7 +191,9 @@ function Header() {
 									<a href="#sobre">Sobre</a>
 								</li>
 								<li>
-									<a href="#programacao">Programação</a>
+									<a href="../assets/pdf/schedule.pdf">
+										Programação
+									</a>
 								</li>
 								<li>
 									<DropDownButton title="Inscreva-se!">
