@@ -398,20 +398,6 @@ function Inscricao() {
 			"#participarTorneio"
 		) as any
 
-		console.log("FIM")
-		console.log("nome:", nome.value)
-		console.log("matricula:", matricula.value)
-		console.log("curso:", curso.value)
-		console.log("email:", email.value)
-
-		console.log("propriedadeIntelectual:", propriedadeIntelectual.checked)
-		console.log("visaoComputacional:", visaoComputacional.checked)
-		console.log(
-			"empreendedorismoFeminino:",
-			empreendedorismoFeminino.checked
-		)
-		console.log("participarTorneio:", participarTorneio.checked)
-
 		setFormFinalizado(true)
 		createPopup(null)
 
@@ -429,12 +415,12 @@ function Inscricao() {
 		cookies.set("jaSeInscreveu", true, { path: "/" })
 
 		// ! DESCOMENTAR PRA REDIRECIONAR PRO SYMPLA
-		// window
-		// 	.open(
-		// 		"https://organizador.sympla.com.br/evento/preview/a095917aa72dd0b74d5937ec0958f473",
-		// 		"_blank"
-		// 	)
-		// 	?.focus()
+		window
+			.open(
+				"https://organizador.sympla.com.br/evento/preview/a095917aa72dd0b74d5937ec0958f473",
+				"_blank"
+			)
+			?.focus()
 	}
 
 	function validateForm() {
