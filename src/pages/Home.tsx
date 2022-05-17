@@ -4,7 +4,7 @@ import Header from "../components/Header"
 import Arrow from "../components/Arrow"
 import PalestraItem from "../components/PalestraItem"
 import CardCourse from "../components/CardCourse"
-import Footer from "../components/Footer"
+import { Footer } from "../components/Footer"
 
 import PcGif from "../assets/gif/GIF PC.gif"
 import TecnoWeek from "../assets/img/TecnoWeekWithoutArrow.png"
