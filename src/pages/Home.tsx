@@ -146,6 +146,15 @@ const SectionContent = styled("section", {
 			textAlign: "center",
 			fontStyle: "italic",
 			filter: "drop-shadow(2px 2px 0px #F7015A)",
+
+			"&.blue": {
+				filter: "drop-shadow(2px 2px 0px #4C7BF5)",
+			},
+			"&.purple": {
+				filter: "drop-shadow(2px 2px 0px #a600a6)",
+			},
+			"&.red": {
+				filter: "drop-shadow(2px 2px 0px #f50159)",
 			},
 		},
 
