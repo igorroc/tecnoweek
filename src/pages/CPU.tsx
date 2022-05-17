@@ -1,6 +1,6 @@
 function CPU() {
-	window.location.href = "http://localhost:3001"
-	// window.location.href = "http://cpu.tecnojr.com.br"
+	// window.location.href = "http://localhost:3001"
+	window.location.href = "http://cpu.tecnojr.com.br"
 
 	return <></>
 }
