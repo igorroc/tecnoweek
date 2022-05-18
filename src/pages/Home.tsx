@@ -246,7 +246,7 @@ const WrapperCPU = styled("div", {
 		width: "180px",
 	},
 
-	"& p": {
+	"& div": {
 		maxWidth: "500px",
 		minWidth: "300px",
 		"& a": {
@@ -261,7 +261,7 @@ const WrapperCPU = styled("div", {
 			},
 		},
 	},
-	"& p p": {
+	"& div p": {
 		marginBottom: "40px",
 		textAlign: "justify",
 	},
@@ -394,7 +394,7 @@ function Home() {
 					</h2>
 					<WrapperCPU>
 						<img src={CPU} alt="Logo CPU" />
-						<p>
+						<div>
 							<p>
 								O CPU é um campeonato de programação que ocorre
 								todos os anos. O evento é promovido pela Empresa
@@ -415,7 +415,7 @@ function Home() {
 							<a href="/cpu" target="_blank">
 								Saiba mais
 							</a>
-						</p>
+						</div>
 					</WrapperCPU>
 				</SectionContent>
 			</MaxWidthWrapper>
