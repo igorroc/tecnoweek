@@ -303,6 +303,7 @@ function Home() {
 						</WrapperPc>
 					</div>
 				</MainContent>
+				
 				<Arrow direction="down" blinking={true} />
 
 				{/* Sobre */}

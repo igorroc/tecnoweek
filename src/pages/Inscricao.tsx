@@ -82,8 +82,8 @@ const MainPage = styled("div", {
 const Modal = styled("div", {
 	"&": {
 		background: "#2F1E2D",
-		width: "500px",
-		paddingBottom: "20px",
+		maxWidth: "500px",
+		// paddingBottom: "20px",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -171,13 +171,13 @@ const Modal = styled("div", {
 					display: "flex",
 					flexDirection: "column",
 					gap: "20px",
-					width: "100%",
+					minWidth: "100%",
 					marginRight: "10px",
 
 					"& .selection": {
 						display: "flex",
 						alignItems: "center",
-						height: "20px",
+						minHeight: "20px",
 						gap: "10px",
 						position: "relative",
 
@@ -243,7 +243,7 @@ const Modal = styled("div", {
 					display: "flex",
 					flexDirection: "column",
 					gap: "10px",
-					width: "350px",
+					maxWidth: "350px",
 
 					"& input": {
 						background: "none",
@@ -312,7 +312,7 @@ const Modal = styled("div", {
 					gap: "2px",
 
 					"& .step": {
-						width: "10%",
+						width: "33%",
 						height: "100%",
 						background: "#FF00DF",
 					},
@@ -341,6 +341,7 @@ const Background = styled("div", {
 
 function Inscricao() {
 	document.body.style.overflow = "hidden"
+
 	const [step, setStep] = useState(0)
 	const [timeLine, setTimeLine] = useState(1)
 	const [popups, setPopups] = useState(0)
@@ -375,7 +376,7 @@ function Inscricao() {
 
 		setStep(final)
 
-		setTimeLine(final * 5 + 1)
+		setTimeLine(final+1)
 	}
 
 	function finalizar(ev: any) {
