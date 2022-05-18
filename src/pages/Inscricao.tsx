@@ -416,10 +416,7 @@ function Inscricao() {
 		// cookies.set("jaSeInscreveu", true, { path: "/" })
 
 		window
-			.open(
-				"https://organizador.sympla.com.br/evento/preview/a095917aa72dd0b74d5937ec0958f473",
-				"_blank"
-			)
+			.open("https://www.sympla.com.br/tecnoweek__1583174", "_blank")
 			?.focus()
 	}
 
