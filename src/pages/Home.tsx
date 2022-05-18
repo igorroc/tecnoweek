@@ -361,7 +361,7 @@ function Home() {
 					<h2 className="purple">MiniCursos</h2>
 					<WrapperCouses>
 						<CardCourse
-							title="Introdução ao Pandas"
+							title="Data Science - Pandas"
 							color="azul"
 							date="Dia 25/05"
 							description="De 8:00 às 12:00 com João Rupp"
@@ -377,7 +377,7 @@ function Home() {
 							<img src={BugBounty} alt="Pandas" />
 						</CardCourse>
 						<CardCourse
-							title="Design com Figma"
+							title="Projetando Web Design (UI&UX) - Figma"
 							color="vermelho"
 							date="Dia 27/05"
 							description="De 8:00 às 12:00 com Igor Rocha"
