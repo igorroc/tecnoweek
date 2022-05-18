@@ -12,6 +12,7 @@ export async function sendDataToDatabase(obj: any) {
 
 				participarTorneio: obj.participarTorneio,
 				propriedadeIntelectual: obj.propriedadeIntelectual,
+				empreendedorismoFeminino: obj.empreendedorismoFeminino,
 				visaoComputacional: obj.visaoComputacional,
 			}),
 		})
