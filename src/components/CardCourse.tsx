@@ -9,8 +9,9 @@ const Card = styled("div", {
 		flex: "1",
 		minWidth: "260px",
 		maxWidth: "300px",
+		minHeight: "355px",
 		transition: "background-size 300ms ease",
-
+		
 		"&.roxo": {
 			background: "linear-gradient(#a600a6, #09B1E600, #a600a6)",
 			backgroundSize: "100% 200%",
@@ -23,6 +24,7 @@ const Card = styled("div", {
 
 		"& > div": {
 			display: "flex",
+			minHeight: "355px",
 			flexDirection: "column",
 			justifyContent: "center",
 			alignItems: "center",
