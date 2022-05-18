@@ -163,6 +163,7 @@ const SectionContent = styled("section", {
 		"& .background": {
 			position: "absolute",
 			width: "100%",
+			overflowX: "hidden",
 			display: "flex",
 			justifyContent: "space-between",
 			alignItems: "center",
@@ -271,8 +272,11 @@ function Home() {
 	const { height, width } = useWindowDimensions()
 	const breakpointMobile = 1220
 
+	document.body.style.overflowX = "hidden"
+	document.body.style.width = "100vw"
+
 	return (
-		<div id="pageTop">
+		<div id="pageTop" style={{ overflowX: "hidden" }}>
 			<Header />
 			<MaxWidthWrapper>
 				<MainContent
@@ -299,6 +303,9 @@ function Home() {
 						</WrapperPc>
 					</div>
 				</MainContent>
+				<Arrow direction="down" blinking={true} />
+
+				{/* Sobre */}
 				<SectionContent id="sobre">
 					<h2 className="blue">O que é o evento?</h2>
 					<AboutList>
@@ -327,7 +334,7 @@ function Home() {
 						<img src={Circuitinhos} />
 					</div>
 				</SectionContent>
-				<Arrow direction="down" blinking={true} />
+
 
 				{/* Palestras */}
 				<SectionContent>
