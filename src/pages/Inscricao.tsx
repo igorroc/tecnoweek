@@ -412,9 +412,9 @@ function Inscricao() {
 			participarTorneio: participarTorneio.checked,
 		})
 
-		cookies.set("jaSeInscreveu", true, { path: "/" })
+		// ! DESCOMENTAR PARA NAO HAVER 2 INSCRICOES
+		// cookies.set("jaSeInscreveu", true, { path: "/" })
 
-		// ! DESCOMENTAR PRA REDIRECIONAR PRO SYMPLA
 		window
 			.open(
 				"https://organizador.sympla.com.br/evento/preview/a095917aa72dd0b74d5937ec0958f473",
