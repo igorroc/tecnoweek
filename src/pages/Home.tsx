@@ -193,6 +193,7 @@ const AboutList = styled("ul", {
 			position: "relative",
 			maxWidth: "680px",
 			alignSelf: "start",
+			textAlign: "justify",
 
 			border: "2px solid #33C6C6a0",
 			borderRadius: "1.5em",
@@ -302,22 +303,23 @@ function Home() {
 					<h2 className="blue">O que é o evento?</h2>
 					<AboutList>
 						<li>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed a posuere elit. Vivamus sagittis diam et
-							diam fringilla, eu mollis risus ultrices.{" "}
+							Tecnoweek é uma semana dedicada a palestras e
+							minicursos sediados na universidade estadual de
+							Santa Cruz, promovidos pela Tecnojr em comemoração
+							ao seu aniversário de 20 anos.
 						</li>
 						<li>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed a posuere elit. Vivamus sagittis diam et
-							diam fringilla, eu mollis risus ultrices. Lorem
-							ipsum dolor sit amet, consectetur adipiscing elit.
-							Sed a posuere elit. Vivamus sagittis diam et diam
-							fringilla, eu mollis risus ultrices.{" "}
+							Para a sua primeira edição, a Tecnoweel traz como
+							tema Tecnologia e Inovação, visando discutir e
+							explorar a forma como ambas afetam o meio
+							empreendedor, especialmente no meio Júnior.
 						</li>
 						<li>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed a posuere elit. Vivamus sagittis diam et
-							diam fringilla, eu mollis risus ultrices.{" "}
+							As atividades que contemplam a Tecnoweek vão desde
+							minicursos na área de tecnologia, a palestras sobre
+							inovações no mercado de trabalho. Haverá também o I
+							Torneio de jogos e o XVII Campeonato de Programação
+							universitário.
 						</li>
 					</AboutList>
 					<div className="background">
