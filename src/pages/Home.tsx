@@ -13,7 +13,6 @@ import Seta from "../assets/img/Seta.png"
 import Onda from "../assets/img/Onda.png"
 import Circuitinhos from "../assets/img/Circuitinhos.png"
 import Gesil from "../assets/img/gesil.png"
-import Leka from "../assets/img/leka.png"
 import Ambrosio from "../assets/img/ambrosio.png"
 import Pandas from "../assets/img/pandas.png"
 import Figma from "../assets/img/figma.png"
@@ -303,7 +302,7 @@ function Home() {
 						</WrapperPc>
 					</div>
 				</MainContent>
-				
+
 				<Arrow direction="down" blinking={true} />
 
 				{/* Sobre */}
@@ -311,23 +310,23 @@ function Home() {
 					<h2 className="blue">O que é o evento?</h2>
 					<AboutList>
 						<li>
-							Tecnoweek é uma semana dedicada a palestras e
-							minicursos sediados na universidade estadual de
-							Santa Cruz, promovidos pela Tecnojr em comemoração
+							TecnoWeek é uma semana dedicada a palestras e
+							minicursos sediados na Universidade Estadual de
+							Santa Cruz, promovidos pela TecnoJr em comemoração
 							ao seu aniversário de 20 anos.
 						</li>
 						<li>
-							Para a sua primeira edição, a Tecnoweel traz como
+							Para a sua primeira edição, a TecnoWeek traz como
 							tema Tecnologia e Inovação, visando discutir e
 							explorar a forma como ambas afetam o meio
 							empreendedor, especialmente no meio Júnior.
 						</li>
 						<li>
-							As atividades que contemplam a Tecnoweek vão desde
+							As atividades que contemplam a TecnoWeek vão desde
 							minicursos na área de tecnologia, a palestras sobre
-							inovações no mercado de trabalho. Haverá também o I
-							Torneio de jogos e o XVII Campeonato de Programação
-							universitário.
+							inovações no mercado de trabalho. Haverá também o 1º
+							Torneio de Jogos e o XVII Campeonato de Programação
+							Universitário.
 						</li>
 					</AboutList>
 					<div className="background">
@@ -335,7 +334,6 @@ function Home() {
 						<img src={Circuitinhos} />
 					</div>
 				</SectionContent>
-
 
 				{/* Palestras */}
 				<SectionContent>
@@ -345,22 +343,15 @@ function Home() {
 						subtitle="Dr. Gesil Sampaio"
 						description="25/05 ás 14hrs"
 					>
-						<img src={Gesil} alt="Leka Hattori" />
-					</PalestraItem>
-					<PalestraItem
-						title="Empreendedorismo Feminino"
-						subtitle="Leka Hattori"
-						description="25/05 ás 15hrs"
-						alternative
-					>
-						<img src={Leka} alt="Leka Hattori" />
+						<img src={Gesil} alt="Foto Gesil Sampaio" />
 					</PalestraItem>
 					<PalestraItem
 						title="Visão Computacional da Indústria"
 						subtitle="Dr. Paulo Ambrósio"
 						description="27/05 ás 14hrs"
+						alternative
 					>
-						<img src={Ambrosio} alt="Leka Hattori" />
+						<img src={Ambrosio} alt="Foto Paulo Ambrósio" />
 					</PalestraItem>
 				</SectionContent>
 
