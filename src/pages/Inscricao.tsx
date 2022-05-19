@@ -429,7 +429,7 @@ function Inscricao() {
 		let matricula = document.querySelector("#matricula") as any
 		let curso = document.querySelector("#curso") as any
 		let email = document.querySelector("#email") as any
-		if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email.value)) {
+		if (!/^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email.value)) {
 			alert("Email inválido!")
 			return false
 		}
