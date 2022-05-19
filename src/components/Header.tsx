@@ -3,10 +3,11 @@ import Logo from "../assets/svg/TecnoJr.svg?component"
 import LogoSmall from "../assets/svg/LogoWhite.svg?component"
 
 import DropDownButton from "./DropDownButton"
-import { MaxWidthWrapper } from "./Global/MaxWidthWrapper"
 import useWindowDimensions from "../hooks/UseWindowDimentions"
 import { useState } from "react"
-import { Icon } from "./Icon"
+import { saveAs } from "file-saver"
+
+import programacao from "../assets/pdf/tecnoweek_cartaz-compactado.pdf"
 
 const HeaderWrapper = styled("header", {
 	"&": {
@@ -19,6 +20,15 @@ const HeaderWrapper = styled("header", {
 		alignItems: "center",
 		justifyContent: "center",
 		top: 0,
+
+		"& .downloadFile": {
+			background: "none",
+			outline: "none",
+			border: "none",
+			color: "white",
+			fontWeight: "bold",
+			cursor: "pointer",
+		},
 	},
 })
 
@@ -106,6 +116,11 @@ const SideNav = styled("div", {
 			"& button": {
 				fontSize: "1em",
 				width: "150px",
+
+				"&.downloadFile": {
+					width: "unset",
+					fontWeight: "400",
+				},
 			},
 		},
 
@@ -137,6 +152,10 @@ function Header() {
 		setToggle((prevToggle) => !prevToggle)
 	}
 
+	function saveFile() {
+		saveAs(programacao, "programacao_tecnoweek.pdf")
+	}
+
 	return (
 		<HeaderWrapper>
 			{width > breakpointMobile ? (
@@ -152,9 +171,9 @@ function Header() {
 							<a href="#sobre">Sobre</a>
 						</li>
 						<li>
-							<a href="../assets/pdf/schedule.pdf" download>
+							<button onClick={saveFile} className="downloadFile">
 								Programação
-							</a>
+							</button>
 						</li>
 						<li>
 							<DropDownButton title="Inscreva-se!">
@@ -191,9 +210,12 @@ function Header() {
 									<a href="#sobre">Sobre</a>
 								</li>
 								<li>
-									<a href="../assets/pdf/schedule.pdf">
+									<button
+										onClick={saveFile}
+										className="downloadFile"
+									>
 										Programação
-									</a>
+									</button>
 								</li>
 								<li>
 									<DropDownButton title="Inscreva-se!">
