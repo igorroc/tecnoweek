@@ -401,7 +401,7 @@ function Inscricao() {
 
 		setFormFinalizado(true)
 		createPopup(null)
-
+		console.log("Enviou?")
 		sendDataToDatabase({
 			nome: nome.value,
 			matricula: matricula.value,
