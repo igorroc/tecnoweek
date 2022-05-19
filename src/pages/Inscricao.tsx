@@ -361,8 +361,6 @@ function Inscricao() {
 		//validate email
 		let email = document.querySelector("#email") as any
 
-	
-
 		ev.preventDefault()
 
 		let formIsValid = validateForm()
@@ -381,7 +379,7 @@ function Inscricao() {
 
 		setStep(final)
 
-		setTimeLine(final+1)
+		setTimeLine(final + 1)
 	}
 
 	function finalizar(ev: any) {
@@ -419,7 +417,7 @@ function Inscricao() {
 		})
 
 		// ! DESCOMENTAR PARA NAO HAVER 2 INSCRICOES
-		// cookies.set("jaSeInscreveu", true, { path: "/" })
+		cookies.set("jaSeInscreveu", true, { path: "/" })
 
 		window
 			.open("https://www.sympla.com.br/tecnoweek__1583174", "_blank")
@@ -431,7 +429,7 @@ function Inscricao() {
 		let matricula = document.querySelector("#matricula") as any
 		let curso = document.querySelector("#curso") as any
 		let email = document.querySelector("#email") as any
-		if(!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email.value))){
+		if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email.value)) {
 			alert("Email inválido!")
 			return false
 		}
