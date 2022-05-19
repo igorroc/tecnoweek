@@ -23,6 +23,7 @@ const LinkList = [
 		prefix: "fab",
 	},
 	{ url: "https://behance.net/tecnojr", iconName: "behance", prefix: "fab" },
+	{ url: "https://wa.me/557336805389", iconName: "whatsapp", prefix: "fab" },
 ]
 
 const FooterDiv = styled("footer", {
