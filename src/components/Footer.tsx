@@ -18,11 +18,11 @@ const LinkList = [
 	},
 	{ url: "https://github.com/tecnojr", iconName: "github", prefix: "fab" },
 	{
-		url: "https://linkedin.com/tecnojr",
+		url: "https://linkedin.com/company/tecnojr",
 		iconName: "linkedin",
 		prefix: "fab",
 	},
-	{ url: "https://behance.com/tecnojr", iconName: "behance", prefix: "fab" },
+	{ url: "https://behance.net/tecnojr", iconName: "behance", prefix: "fab" },
 ]
 
 const FooterDiv = styled("footer", {
