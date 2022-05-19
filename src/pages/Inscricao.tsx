@@ -344,6 +344,7 @@ function Inscricao() {
 
 	const [step, setStep] = useState(0)
 	const [timeLine, setTimeLine] = useState(1)
+	const [cursoValue, setCursoValue] = useState("null")
 	const [popups, setPopups] = useState(0)
 	const [formFinalizado, setFormFinalizado] = useState(false)
 	const [randomPosition, setRandomPosition] = useState([
@@ -382,6 +383,10 @@ function Inscricao() {
 		setTimeLine(final + 1)
 	}
 
+	function handleCurso(ev: any) {
+		setCursoValue(ev.target.value)
+	}
+
 	function finalizar(ev: any) {
 		ev.preventDefault()
 		let nome = document.querySelector("#nome") as any
@@ -395,24 +400,29 @@ function Inscricao() {
 		let visaoComputacional = document.querySelector(
 			"#visaoComputacional"
 		) as any
-		let empreendedorismoFeminino = document.querySelector(
-			"#empreendedorismoFeminino"
-		) as any
+
 		let participarTorneio = document.querySelector(
 			"#participarTorneio"
 		) as any
 
 		setFormFinalizado(true)
 		createPopup(null)
-		console.log("Enviou?")
+
+		let matriculaValor
+		if (matricula) {
+			matriculaValor = matricula.value
+		} else {
+			matriculaValor = null
+		}
+
 		sendDataToDatabase({
 			nome: nome.value,
-			matricula: matricula.value,
+			matricula: matriculaValor,
 			curso: curso.value,
 			email: email.value,
 			propriedadeIntelectual: propriedadeIntelectual.checked,
 			visaoComputacional: visaoComputacional.checked,
-			empreendedorismoFeminino: empreendedorismoFeminino.checked,
+			empreendedorismoFeminino: 0,
 			participarTorneio: participarTorneio.checked,
 		})
 
@@ -429,11 +439,25 @@ function Inscricao() {
 		let matricula = document.querySelector("#matricula") as any
 		let curso = document.querySelector("#curso") as any
 		let email = document.querySelector("#email") as any
-		if (!/^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email.value)) {
+		if (!/^[a-z0-9._]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/.test(email.value)) {
 			alert("Email inválido!")
 			return false
 		}
-		if (nome?.value && matricula?.value && curso?.value && email?.value) {
+		if (matricula) {
+			if (!/\d{9}/.test(matricula.value)) {
+				alert("Matricula inválida!")
+				return false
+			}
+			if (
+				nome?.value &&
+				matricula?.value &&
+				curso?.value &&
+				email?.value
+			) {
+				return true
+			}
+		}
+		if (nome?.value && curso?.value && email?.value) {
 			return true
 		}
 		return false
@@ -480,33 +504,46 @@ function Inscricao() {
 								/>
 							</div>
 							<div className="question">
-								<label htmlFor="matricula">Matrícula</label>
-								<InputMask
-									type="text"
-									id="matricula"
-									name="matricula"
-									placeholder="Ex: 202210111"
-									mask="_________"
-									maskType="number"
-									required
-								/>
-							</div>
-							<div className="question">
 								<label htmlFor="curso">Curso</label>
 								<select
 									name="curso"
 									id="curso"
 									placeholder="Selecione seu curso"
 									required
+									onChange={handleCurso}
 								>
+									<option disabled selected value="null">
+										Escolha seu curso
+									</option>
 									<option value="cic">
 										Ciência da Computação
 									</option>
 									<option value="fis">Física</option>
-									<option value="eng">Engenharia</option>
+									<option value="eng">Engenharias</option>
 									<option value="mat">Matemática</option>
+									<option value="outro">Outro</option>
+									<option value="null">
+										Não sou da UESC
+									</option>
 								</select>
 							</div>
+							{cursoValue != "null" ? (
+								<div className="question">
+									<label htmlFor="matricula">Matrícula</label>
+									<InputMask
+										type="text"
+										id="matricula"
+										name="matricula"
+										placeholder="Ex: 202210111"
+										mask="_________"
+										maskType="number"
+										required
+									/>
+								</div>
+							) : (
+								""
+							)}
+
 							<div className="question">
 								<label htmlFor="email">Email</label>
 								<input
@@ -563,27 +600,6 @@ function Inscricao() {
 											<p>
 												Horário:
 												<strong>27/05 ás 14hrs</strong>
-											</p>
-										</div>
-									</label>
-								</span>
-								<span className="selection">
-									<label htmlFor="empreendedorismoFeminino">
-										Empreendedorismo Feminino
-										<input
-											type="checkbox"
-											id="empreendedorismoFeminino"
-											name="empreendedorismoFeminino"
-										/>
-										<span className="checkmark"></span>
-										<div className="info">
-											<p>
-												Palestrante:
-												<strong>Leka Hattori</strong>
-											</p>
-											<p>
-												Horário:
-												<strong>25/05 às 15hrs</strong>
 											</p>
 										</div>
 									</label>
