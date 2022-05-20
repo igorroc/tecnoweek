@@ -86,6 +86,21 @@ const MainContent = styled("main", {
 			"& p": {
 				fontSize: "1.2em",
 			},
+
+			"& a": {
+				fontSize: "1.2em",
+				fontWeight: "bold",
+				borderRadius: "10px",
+				padding: "10px 20px",
+				width: "max-content",
+				background:
+					"linear-gradient(to right, rgb(255, 0, 153), rgb(255, 0, 180))",
+				transition: "transform 200ms ease-in-out",
+
+				"&:hover": {
+					transform: "scale(1.2)",
+				},
+			},
 		},
 	},
 })
@@ -292,6 +307,7 @@ function Home() {
 						<h2>Tecnologia e Inovação</h2>
 						<h3>25 à 27 de maio</h3>
 						<p>Na Universidade Estadual de Santa Cruz</p>
+						<a href="/inscricao">Garanta sua vaga!</a>
 					</div>
 					<div id="right">
 						<WrapperPc>
